@@ -1,0 +1,2 @@
+# CollectionHorizontalPage
+高仿美团APP首页 collectionView分页+pageControl联动
