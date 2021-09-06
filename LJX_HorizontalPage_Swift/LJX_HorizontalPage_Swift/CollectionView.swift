@@ -7,8 +7,8 @@
 
 import UIKit
 
-let rowCount = 2    // 行数
-let countPerRow = 4 // 每行多少个item
+let rowCount = 3    // 行数
+let countPerRow = 3 // 每行多少个item
 let allCount = 19   // 一共多少个item
 
 let identifier = "HorizontalPageCell"
@@ -78,7 +78,7 @@ class CollectionView: UIView {
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
         layout.rowCountItem(rowCount: rowCount, countPerRow: countPerRow)
-        layout.columnSpacing(columnSpacing: 10, rowSpacing: 15, edge: UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10))
+        layout.columnSpacing(columnSpacing: 10, rowSpacing: 10, edge: UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10))
         let collectionView = UICollectionView.init(frame: CGRect.init(x: 0, y: 200, width: UIScreen.main.bounds.size.width, height: 300), collectionViewLayout:layout)
         layout.scrollDirection = UICollectionView.ScrollDirection.horizontal
         collectionView.backgroundColor = UIColor.lightGray
@@ -122,7 +122,7 @@ extension CollectionView : UICollectionViewDelegate , UICollectionViewDataSource
         cell.contentView.backgroundColor = UIColor.init(red: RandomColor(value: 255), green: RandomColor(value: 255), blue: RandomColor(value: 255), alpha: 1)
         let row = indexPath.row
                 
-        cell.title =  String("\(row)")
+        cell.title = String("\(row)")
         
         return cell
     }

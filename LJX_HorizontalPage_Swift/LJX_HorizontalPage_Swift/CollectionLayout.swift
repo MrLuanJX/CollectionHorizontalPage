@@ -64,7 +64,6 @@ class CollectionLayout: UICollectionViewFlowLayout {
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        
         return attributesArrayM
     }
 
@@ -101,12 +100,7 @@ class CollectionLayout: UICollectionViewFlowLayout {
 
         let pageNumber : NSInteger = NSInteger(item)/NSInteger(self.rowCount*self.countPerRow)
 
-        let x : CGFloat
-        if item == 0 {
-            x = CGFloat(NSInteger(pageNumber)*NSInteger(self.countPerRow))
-        } else {
-            x = CGFloat(item%self.countPerRow)+CGFloat(NSInteger(pageNumber)*NSInteger(self.countPerRow))
-        }
+        let x : CGFloat = CGFloat(item%self.countPerRow)+CGFloat(NSInteger(pageNumber)*NSInteger(self.countPerRow))
         
         let y : CGFloat = CGFloat(item/self.countPerRow)-CGFloat(NSInteger(pageNumber)*NSInteger(self.rowCount))
 
