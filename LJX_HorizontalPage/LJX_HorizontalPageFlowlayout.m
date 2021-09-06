@@ -94,8 +94,9 @@
         }
     } else {
         width = self.edgeInsets.left + pageNumber * self.itemCountPerRow * (itemWidth + self.columnSpacing) - self.columnSpacing + self.edgeInsets.right + (pageNumber-1)*self.edgeInsets.left;
+        
     }
-    
+
     // 只支持水平方向上的滚动
     return CGSizeMake(width, 0);
 }
@@ -103,7 +104,7 @@
 /** 设置每个item的属性(主要是frame) */
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
     // item的宽高由行列间距和collectionView的内边距决定
-    CGFloat itemWidth  = ([UIScreen mainScreen].bounds.size.width - self.edgeInsets.left - self.itemCountPerRow * self.columnSpacing) / self.itemCountPerRow;
+    CGFloat itemWidth  = (UIScreen.mainScreen.bounds.size.width - self.edgeInsets.left - self.itemCountPerRow * self.columnSpacing) / self.itemCountPerRow;
     CGFloat itemHeight = (self.collectionView.frame.size.height - self.edgeInsets.top - self.edgeInsets.bottom - (self.rowCount - 1) * self.rowSpacing) / self.rowCount;
     
     NSInteger item = indexPath.item;
@@ -120,7 +121,7 @@
     
     // 每个item的frame
     attributes.frame = CGRectMake((10*pageNumber)+itemX, itemY, itemWidth, itemHeight);
-    
+        
     return attributes;
 }
 
