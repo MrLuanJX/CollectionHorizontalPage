@@ -10,7 +10,7 @@
 
 static NSInteger rowCount = 3;      // 行数
 static NSInteger countPerRow = 4;   // 每行多少个item
-static NSInteger allCount = 14;     // 一共多少个item
+static NSInteger allCount = 21;     // 一共多少个item
 #define Random(X)    arc4random_uniform(X)/255.0
 
 @interface LJX_CollectionCell()

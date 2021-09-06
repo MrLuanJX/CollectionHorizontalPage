@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  CollectionHorizontalLayout
+//  LJX_HorizontalPage_Swift
 //
-//  Created by 理享学 on 2021/9/2.
+//  Created by 理享学 on 2021/9/6.
 //
 
 import UIKit
