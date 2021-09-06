@@ -79,8 +79,6 @@ class CollectionLayout: UICollectionViewFlowLayout {
         
         var pageNumber : NSInteger = itemTotalCount / itemCount
 
-        var width : CGFloat
-
         if itemTotalCount <= itemCount {
             pageNumber = 1;
         } else {
@@ -88,17 +86,9 @@ class CollectionLayout: UICollectionViewFlowLayout {
                 pageNumber = pageNumber + 1
             }
         }
-        
-        // 考虑特殊情况(当item的总个数不是self.rowCount * self.itemCountPerRow的整数倍,并且余数小于每行展示的个数的时候)        
-        if pageNumber > 1 && remainder != 0 && remainder < self.countPerRow {
-            if remainder <= self.countPerRow-1 {
-                width =  CGFloat(self.edgeInsets.left)+CGFloat(Float(pageNumber-1))*CGFloat(CGFloat(self.countPerRow)*(itemWidth+CGFloat(self.columnSpacing))+CGFloat(remainder)*itemWidth+CGFloat(remainder-1)*CGFloat(self.columnSpacing)+CGFloat(self.edgeInsets.right)+collectionView!.frame.size.width-itemWidth*CGFloat(remainder)-CGFloat(edgeInsets.left)*CGFloat(remainder)+CGFloat(self.edgeInsets.left)*CGFloat(pageNumber-2))
-            } else {
-                width = CGFloat(edgeInsets.left)+CGFloat(Float(pageNumber-1))*CGFloat(CGFloat(countPerRow)*(itemWidth+CGFloat(self.columnSpacing))+CGFloat(remainder)*CGFloat(itemWidth)+CGFloat(remainder-1)*CGFloat(self.columnSpacing)+CGFloat(edgeInsets.right))
-            }
-        } else {
-            width = CGFloat(Float(self.edgeInsets.left))+CGFloat(Float(pageNumber))*CGFloat(self.countPerRow)*(CGFloat(itemWidth)+CGFloat(self.columnSpacing))-CGFloat(self.columnSpacing)+CGFloat(self.edgeInsets.right)+CGFloat(pageNumber-1)*CGFloat(self.edgeInsets.left)
-        }
+    
+        let width : CGFloat = CGFloat(Float(self.edgeInsets.left))+CGFloat(Float(pageNumber))*CGFloat(self.countPerRow)*(CGFloat(itemWidth)+CGFloat(self.columnSpacing))-CGFloat(self.columnSpacing)+CGFloat(self.edgeInsets.right)+CGFloat(pageNumber-1)*CGFloat(self.edgeInsets.left)
+                
         return  CGSize(width: width, height: 0)
     }
     

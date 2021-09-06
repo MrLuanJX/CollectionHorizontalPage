@@ -7,9 +7,9 @@
 
 import UIKit
 
-let rowCount = 3    // 行数
-let countPerRow = 3 // 每行多少个item
-let allCount = 33   // 一共多少个item
+let rowCount = 2    // 行数
+let countPerRow = 4 // 每行多少个item
+let allCount = 19   // 一共多少个item
 
 let identifier = "HorizontalPageCell"
 
@@ -97,7 +97,7 @@ class CollectionView: UIView {
         let pageControl = UIPageControl.init(frame: CGRect.init(x: 0, y: 500, width: self.frame.size.width, height: 50))
         pageControl.currentPage = 0
         pageControl.pageIndicatorTintColor = UIColor.lightGray
-        pageControl.currentPageIndicatorTintColor = UIColor.black
+        pageControl.currentPageIndicatorTintColor = UIColor.orange
         
         return pageControl
     }()
@@ -108,8 +108,7 @@ class CollectionView: UIView {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let page = Int((scrollView.contentOffset.x/scrollView.frame.size.width+0.5))%Int(dataSource.count)
-        pageControl.currentPage = page
+        pageControl.currentPage = NSInteger(Int((scrollView.contentOffset.x/scrollView.frame.size.width+0.5))%NSInteger(dataSource.count))
     }
 }
 

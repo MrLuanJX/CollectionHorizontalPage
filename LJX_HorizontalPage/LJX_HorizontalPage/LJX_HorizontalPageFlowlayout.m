@@ -84,18 +84,7 @@
         }
     }
     
-    CGFloat width = 0;
-    // 考虑特殊情况(当item的总个数不是self.rowCount * self.itemCountPerRow的整数倍,并且余数小于每行展示的个数的时候)
-    if (pageNumber > 1 && remainder != 0 && remainder < self.itemCountPerRow) {
-        if (remainder <= self.itemCountPerRow -1) {
-            width = self.edgeInsets.left + (pageNumber - 1) * self.itemCountPerRow * (itemWidth + self.columnSpacing) + remainder * itemWidth + (remainder - 1)*self.columnSpacing + self.edgeInsets.right + self.collectionView.bounds.size.width-itemWidth*(remainder)-self.edgeInsets.left*remainder + self.edgeInsets.left*(pageNumber-2);
-        } else {
-            width = self.edgeInsets.left + (pageNumber - 1) * self.itemCountPerRow * (itemWidth + self.columnSpacing) + remainder * itemWidth + (remainder - 1)*self.columnSpacing + self.edgeInsets.right;
-        }
-    } else {
-        width = self.edgeInsets.left + pageNumber * self.itemCountPerRow * (itemWidth + self.columnSpacing) - self.columnSpacing + self.edgeInsets.right + (pageNumber-1)*self.edgeInsets.left;
-        
-    }
+    CGFloat width = self.edgeInsets.left + pageNumber * self.itemCountPerRow * (itemWidth + self.columnSpacing) - self.columnSpacing + self.edgeInsets.right + (pageNumber-1)*self.edgeInsets.left;
 
     // 只支持水平方向上的滚动
     return CGSizeMake(width, 0);
