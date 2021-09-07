@@ -9,7 +9,7 @@ import UIKit
 
 let rowCount = 3    // 行数
 let countPerRow = 3 // 每行多少个item
-let allCount = 19   // 一共多少个item
+let allCount = 55   // 一共多少个item
 
 let identifier = "HorizontalPageCell"
 

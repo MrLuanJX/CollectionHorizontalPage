@@ -87,7 +87,7 @@ class CollectionLayout: UICollectionViewFlowLayout {
         }
     
         let width : CGFloat = CGFloat(Float(self.edgeInsets.left))+CGFloat(Float(pageNumber))*CGFloat(self.countPerRow)*(CGFloat(itemWidth)+CGFloat(self.columnSpacing))-CGFloat(self.columnSpacing)+CGFloat(self.edgeInsets.right)+CGFloat(pageNumber-1)*CGFloat(self.edgeInsets.left)
-                
+        // 横向滚动 height为0
         return  CGSize(width: width, height: 0)
     }
     
